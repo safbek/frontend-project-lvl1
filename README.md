@@ -7,3 +7,5 @@ Brain-games project.
 [![Build Status](https://travis-ci.org/safbek/frontend-project-lvl1.svg?branch=master)](https://travis-ci.org/safbek/frontend-project-lvl1)
 
 <a href="https://asciinema.org/a/fiVPSizqTdpRt5lRGc1lhoI2c" target="_blank"><img src="https://asciinema.org/a/fiVPSizqTdpRt5lRGc1lhoI2c.svg" /></a>
+
+<a href="https://asciinema.org/a/D6YLZ5vUGXrjlUERxgL0OqGRp" target="_blank"><img src="https://asciinema.org/a/D6YLZ5vUGXrjlUERxgL0OqGRp.svg" /></a>
