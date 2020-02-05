@@ -7,7 +7,7 @@ const getRandomValue = (min, max) => {
   return Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber;
 };
 
-export const rule = 'What is the result of the expression?';
+export const ruleBrainCalcGame = 'What is the result of the expression?';
 
 
 const brainCalcGame = () => {

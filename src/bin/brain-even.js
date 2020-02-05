@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import { engineGames, rule, brainEvenGame } from '..';
+import { engineGames, ruleBrainEvenGame, brainEvenGame } from '..';
 
-console.log(engineGames(rule, brainEvenGame));
+console.log(engineGames(ruleBrainEvenGame, brainEvenGame));

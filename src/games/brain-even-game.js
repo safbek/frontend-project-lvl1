@@ -8,7 +8,7 @@ const getRandomValue = (min, max) => {
   return Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber;
 };
 
-export const rule = 'Answer "yes" if the number is even, otherwise answer "no".';
+export const ruleBrainEvenGame = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 const brainEvenGame = () => {
   const parityOfNumber = getRandomValue(1, 100);

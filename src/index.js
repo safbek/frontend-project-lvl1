@@ -1,6 +1,8 @@
 import readlineSync from 'readline-sync';
-import { brainEvenGame } from './games/brain-even-game';
-import { brainCalcGame, rule } from './games/brain-calc-game';
+import { brainEvenGame, ruleBrainEvenGame } from './games/brain-even-game';
+import { brainCalcGame, ruleBrainCalcGame } from './games/brain-calc-game';
+import { brainGcdGame, ruleBrainGcdGame } from './games/brain-gcd-game';
+
 
 const greeting = () => {
   console.log('Welcome to the Brain Games!');
@@ -25,9 +27,13 @@ const engineGames = (arg, func2) => {
       return `'${answerUser}'is wrong answer ;(. Correct answer was '${correctAnswer}'. Let's try again, ${name}!`;
     }
   }
+  // return 'Congratulations!';
   return `Congratulations, ${name}!`;
 };
 
 export {
-  brainEvenGame, brainCalcGame, engineGames, rule,
+  engineGames,
+  brainCalcGame, ruleBrainCalcGame,
+  brainEvenGame, ruleBrainEvenGame,
+  brainGcdGame, ruleBrainGcdGame,
 };
