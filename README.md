@@ -11,3 +11,5 @@ Brain-games project.
 <a href="https://asciinema.org/a/D6YLZ5vUGXrjlUERxgL0OqGRp" target="_blank"><img src="https://asciinema.org/a/D6YLZ5vUGXrjlUERxgL0OqGRp.svg" /></a>
 
 <a href="https://asciinema.org/a/5otpOjmoBjZ8OnUlu25XzXaCv" target="_blank"><img src="https://asciinema.org/a/5otpOjmoBjZ8OnUlu25XzXaCv.svg" /></a>
+
+<a href="https://asciinema.org/a/hS74ujGOSLZ3EXX0scmMv1kS0" target="_blank"><img src="https://asciinema.org/a/hS74ujGOSLZ3EXX0scmMv1kS0.svg" /></a>
