@@ -27,10 +27,11 @@ const engineGames = (arg, func2) => {
       console.log('Correct!');
     } else if (answerUser !== correctAnswer) {
       console.log(`Your answer: ${answerUser}`);
-      return `'${answerUser}'is wrong answer ;(. Correct answer was '${correctAnswer}'. Let's try again, ${name}!`;
+      console.log(`'${answerUser}'is wrong answer ;(. Correct answer was '${correctAnswer}'. Let's try again, ${name}!`);
+      return;
     }
   }
-  return `Congratulations, ${name}!`;
+  console.log(`Congratulations, ${name}!`);
 };
 
 export {
