@@ -2,4 +2,4 @@
 
 import { engineGames, ruleBrainCalcGame, brainCalcGame } from '..';
 
-console.log(engineGames(ruleBrainCalcGame, brainCalcGame));
+engineGames(ruleBrainCalcGame, brainCalcGame);

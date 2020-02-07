@@ -1,5 +1,4 @@
 import readlineSync from 'readline-sync';
-// import engineGames from '..';
 
 const getRandomValue = (min, max) => {
   const minNumber = Math.ceil(min);
@@ -31,11 +30,6 @@ const brainCalcGame = () => {
 
   const question = `Question: ${firstValue} ${operand} ${secondValue} `;
   const answer = readlineSync.question(question);
-
-  // const message = `Your answer: ${answer} Correct!`;
-  // const message2 = `Your answer: ${answer}
-  //   '${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.
-  //   Let's try again, ${name}`;
 
   const pair = [];
   pair.push(+answer);
