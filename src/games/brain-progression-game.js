@@ -1,16 +1,12 @@
 import readlineSync from 'readline-sync';
+import runGameEngine from '..';
+import getRandomValue from '../generate-data';
 
-const getRandomValue = (min, max) => {
-  const minNumber = Math.ceil(min);
-  const maxNumber = Math.floor(max);
-  return Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber;
-};
+export const ruleGame = 'What number is missing in the progression?';
 
-export const ruleBrainProgressionGame = 'What number is missing in the progression?';
-
-const createArithmeticProgression = () => {
-  const initialTerm = getRandomValue(1, 100);
-  const commonDifference = getRandomValue(1, 100);
+const setArithmeticProgression = () => {
+  const initialTerm = getRandomValue();
+  const commonDifference = getRandomValue();
 
   const arithmeticProgression = [initialTerm];
   const arithmeticProgressionLength = 9;
@@ -30,26 +26,23 @@ const getRandomValueFromArray = (arr) => {
   return randomElement;
 };
 
-const hiddenElementInArr = (element, arr) => {
-  const newArr = arr;
-  const el = arr.indexOf(element);
-  newArr[el] = '..';
-  return arr.join();
+const hideElement = (element, elements) => {
+  const array = elements;
+  const hiddenEl = elements.indexOf(element);
+  array[hiddenEl] = '..';
+  return array.join();
 };
 
-const brainProgressionGame = () => {
-  const arithmeticProgressionArr = createArithmeticProgression();
-  const hiddenRandomElement = getRandomValueFromArray(arithmeticProgressionArr);
-  const arithmeticProgression = hiddenElementInArr(hiddenRandomElement, arithmeticProgressionArr);
+const getGameData = () => {
+  const arithmeticProgression = setArithmeticProgression();
+  const hiddenRandomElement = getRandomValueFromArray(arithmeticProgression);
+  const arithmeticProgressionWithHiddenEl = hideElement(hiddenRandomElement, arithmeticProgression);
 
+  const question = `Question: ${arithmeticProgressionWithHiddenEl} `;
+  const userAnswer = readlineSync.question(question);
   const correctAnswer = hiddenRandomElement;
-  const question = `Question: ${arithmeticProgression} `;
-  const answer = readlineSync.question(question);
 
-  const pair = [];
-  pair.push(+answer);
-  pair.push(correctAnswer);
-  return pair;
+  return [userAnswer, correctAnswer];
 };
 
-export { brainProgressionGame };
+export default () => runGameEngine(ruleGame, getGameData);

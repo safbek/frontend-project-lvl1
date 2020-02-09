@@ -1,22 +1,18 @@
 import readlineSync from 'readline-sync';
+import runGameEngine from '..';
+import getRandomValue from '../generate-data';
 
-const getRandomValue = (min, max) => {
-  const minNumber = Math.ceil(min);
-  const maxNumber = Math.floor(max);
-  return Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber;
-};
+export const ruleGame = 'Find the greatest common divisor of given numbers.';
 
-export const ruleBrainGcdGame = 'Find the greatest common divisor of given numbers.';
-
-const brainGcdGame = () => {
-  let firstNumber = getRandomValue(1, 100);
-  let secondNumber = getRandomValue(1, 100);
+const getGameData = () => {
+  let firstNumber = getRandomValue();
+  let secondNumber = getRandomValue();
 
   const question = `Question: ${firstNumber} ${secondNumber} `;
-  const answer = readlineSync.question(question);
+  const userAnswer = readlineSync.question(question);
 
-  let correctAnswer = 0;
-  let temp = 0;
+  let correctAnswer;
+  let temp;
 
   while (secondNumber !== 0) {
     temp = secondNumber;
@@ -24,10 +20,7 @@ const brainGcdGame = () => {
     firstNumber = temp;
     correctAnswer = firstNumber;
   }
-  const pair = [];
-  pair.push(+answer);
-  pair.push(correctAnswer);
-  return pair;
+  return [userAnswer, correctAnswer];
 };
 
-export { brainGcdGame };
+export default () => runGameEngine(ruleGame, getGameData);

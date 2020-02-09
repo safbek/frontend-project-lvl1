@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import { engineGames, ruleBrainEvenGame, brainEvenGame } from '..';
+import brainEven from '../games/brain-even-game';
 
-engineGames(ruleBrainEvenGame, brainEvenGame);
+brainEven();

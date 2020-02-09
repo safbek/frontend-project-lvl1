@@ -1,15 +1,10 @@
 import readlineSync from 'readline-sync';
+import runGameEngine from '..';
+import getRandomValue from '../generate-data';
 
-const getRandomValue = (min, max) => {
-  const minNumber = Math.ceil(min);
-  const maxNumber = Math.floor(max);
-  return Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber;
-};
+export const ruleGame = 'What is the result of the expression?';
 
-export const ruleBrainCalcGame = 'What is the result of the expression?';
-
-
-const brainCalcGame = () => {
+const getGameData = () => {
   const operators = [{
     sign: '+',
     method: (a, b) => a + b,
@@ -22,19 +17,16 @@ const brainCalcGame = () => {
   }];
 
   const selectedOperator = Math.floor(Math.random() * operators.length);
-
   const operand = operators[selectedOperator].sign;
-  const firstValue = getRandomValue(1, 100);
-  const secondValue = getRandomValue(1, 100);
-  const correctAnswer = operators[selectedOperator].method(firstValue, secondValue);
+
+  const firstValue = getRandomValue();
+  const secondValue = getRandomValue();
 
   const question = `Question: ${firstValue} ${operand} ${secondValue} `;
-  const answer = readlineSync.question(question);
+  const userAnswer = +readlineSync.question(question);
+  const correctAnswer = operators[selectedOperator].method(firstValue, secondValue);
 
-  const pair = [];
-  pair.push(+answer);
-  pair.push(correctAnswer);
-  return pair;
+  return [userAnswer, correctAnswer];
 };
 
-export { brainCalcGame };
+export default () => runGameEngine(ruleGame, getGameData);
