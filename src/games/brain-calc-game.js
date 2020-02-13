@@ -1,32 +1,32 @@
-import readlineSync from 'readline-sync';
 import runGameEngine from '..';
 import getRandomValue from '../generate-data';
 
-export const ruleGame = 'What is the result of the expression?';
+const ruleGame = 'What is the result of the expression?';
+
+const operators = [{
+  operator: '+',
+  method: (a, b) => a + b,
+}, {
+  operator: '-',
+  method: (a, b) => a - b,
+}, {
+  operator: '*',
+  method: (a, b) => a * b,
+}];
 
 const getGameData = () => {
-  const operators = [{
-    sign: '+',
-    method: (a, b) => a + b,
-  }, {
-    sign: '-',
-    method: (a, b) => a - b,
-  }, {
-    sign: '*',
-    method: (a, b) => a * b,
-  }];
-
-  const selectedOperator = Math.floor(Math.random() * operators.length);
-  const operand = operators[selectedOperator].sign;
+  const firstIndex = 0;
+  const lastIndex = operators.length - 1;
+  const selectedOperator = getRandomValue(firstIndex, lastIndex);
+  const { operator } = operators[selectedOperator];
 
   const firstValue = getRandomValue();
   const secondValue = getRandomValue();
 
-  const question = `Question: ${firstValue} ${operand} ${secondValue} `;
-  const userAnswer = +readlineSync.question(question);
+  const question = `Question: ${firstValue} ${operator} ${secondValue} `;
   const correctAnswer = operators[selectedOperator].method(firstValue, secondValue);
 
-  return [userAnswer, correctAnswer];
+  return [question, correctAnswer];
 };
 
 export default () => runGameEngine(ruleGame, getGameData);

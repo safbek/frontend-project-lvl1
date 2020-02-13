@@ -1,8 +1,7 @@
-import readlineSync from 'readline-sync';
 import runGameEngine from '..';
 import getRandomValue from '../generate-data';
 
-export const ruleGame = 'What number is missing in the progression?';
+const ruleGame = 'What number is missing in the progression?';
 
 const setArithmeticProgression = () => {
   const initialTerm = getRandomValue();
@@ -22,7 +21,11 @@ const setArithmeticProgression = () => {
 };
 
 const getRandomValueFromArray = (arr) => {
-  const randomElement = arr[Math.floor(Math.random() * arr.length)];
+  const firstIndex = 0;
+  const lastIndex = arr.length - 1;
+  const index = getRandomValue(firstIndex, lastIndex);
+
+  const randomElement = arr[index];
   return randomElement;
 };
 
@@ -39,10 +42,9 @@ const getGameData = () => {
   const arithmeticProgressionWithHiddenEl = hideElement(hiddenRandomElement, arithmeticProgression);
 
   const question = `Question: ${arithmeticProgressionWithHiddenEl} `;
-  const userAnswer = readlineSync.question(question);
   const correctAnswer = hiddenRandomElement;
 
-  return [userAnswer, correctAnswer];
+  return [question, correctAnswer];
 };
 
 export default () => runGameEngine(ruleGame, getGameData);
