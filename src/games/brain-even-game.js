@@ -1,15 +1,13 @@
 import runGameEngine from '..';
-import getRandomValue from '../generate-data';
+import getRandomValue from '../utils';
 
 const isEven = (number) => (number % 2 === 0);
 
 const ruleGame = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 const getGameData = () => {
-  const parityOfNumber = getRandomValue();
-
-  const question = `Question: ${parityOfNumber} `;
-  const correctAnswer = isEven(parityOfNumber) ? 'yes' : 'no';
+  const question = getRandomValue();
+  const correctAnswer = isEven(question) ? 'yes' : 'no';
 
   return [question, correctAnswer];
 };

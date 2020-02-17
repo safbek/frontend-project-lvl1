@@ -1,28 +1,20 @@
 import runGameEngine from '..';
-import getRandomValue from '../generate-data';
+import getRandomValue from '../utils';
 
 const ruleGame = 'Find the greatest common divisor of given numbers.';
 
 const getGcdOfTwoNumber = (number1, number2) => {
-  let firstNumber = number1;
-  let secondNumber = number2;
-  let result;
-  let temp;
-
-  while (secondNumber !== 0) {
-    temp = secondNumber;
-    secondNumber = firstNumber % secondNumber;
-    firstNumber = temp;
-    result = firstNumber;
+  if (number2 === 0) {
+    return number1;
   }
-  return result;
+  return getGcdOfTwoNumber(number2, number1 % number2);
 };
 
 const getGameData = () => {
   const firstNumber = getRandomValue();
   const secondNumber = getRandomValue();
 
-  const question = `Question: ${firstNumber} ${secondNumber} `;
+  const question = `${firstNumber} ${secondNumber}`;
   const correctAnswer = getGcdOfTwoNumber(firstNumber, secondNumber);
 
   return [question, correctAnswer];

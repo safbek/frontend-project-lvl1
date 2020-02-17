@@ -1,5 +1,5 @@
 import runGameEngine from '..';
-import getRandomValue from '../generate-data';
+import getRandomValue from '../utils';
 
 const ruleGame = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
@@ -18,10 +18,8 @@ const isPrime = (num) => {
 };
 
 const getGameData = () => {
-  const number = getRandomValue();
-
-  const correctAnswer = isPrime(number) ? 'yes' : 'no';
-  const question = `Question: ${number} `;
+  const question = getRandomValue();
+  const correctAnswer = isPrime(question) ? 'yes' : 'no';
 
   return [question, correctAnswer];
 };

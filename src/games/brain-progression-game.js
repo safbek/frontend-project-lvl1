@@ -1,24 +1,22 @@
 import runGameEngine from '..';
-import getRandomValue from '../generate-data';
+import getRandomValue from '../utils';
 
 const ruleGame = 'What number is missing in the progression?';
 
-const setArithmeticProgression = () => {
-  const initialTerm = getRandomValue();
-  const commonDifference = getRandomValue();
+const progressionLength = 9;
+const setProgression = () => {
+  const first = getRandomValue();
+  const step = getRandomValue();
 
-  const arithmeticProgression = [initialTerm];
-  const arithmeticProgressionLength = 9;
-  let nextTerm = initialTerm + commonDifference;
-  let i = 0;
-
-  while (i < arithmeticProgressionLength) {
-    arithmeticProgression[i] = nextTerm;
-    nextTerm += commonDifference;
-    i += 1;
+  const progression = [];
+  let n = 0;
+  while (n < progressionLength) {
+    progression[n] = first + n * step;
+    n += 1;
   }
-  return arithmeticProgression;
+  return progression;
 };
+
 
 const getRandomValueFromArray = (arr) => {
   const firstIndex = 0;
@@ -37,11 +35,11 @@ const hideElement = (element, elements) => {
 };
 
 const getGameData = () => {
-  const arithmeticProgression = setArithmeticProgression();
-  const hiddenRandomElement = getRandomValueFromArray(arithmeticProgression);
-  const arithmeticProgressionWithHiddenEl = hideElement(hiddenRandomElement, arithmeticProgression);
+  const progression = setProgression();
+  const hiddenRandomElement = getRandomValueFromArray(progression);
+  const progressionWithHiddenEl = hideElement(hiddenRandomElement, progression);
 
-  const question = `Question: ${arithmeticProgressionWithHiddenEl} `;
+  const question = `${progressionWithHiddenEl}`;
   const correctAnswer = hiddenRandomElement;
 
   return [question, correctAnswer];

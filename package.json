@@ -22,6 +22,10 @@
     "type": "git",
     "url": "git+https://github.com/safbek/frontend-project-lvl1.git"
   },
+  "keywords": [
+    "game",
+    "brain"
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {
