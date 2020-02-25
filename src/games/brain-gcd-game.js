@@ -15,7 +15,7 @@ const getGameData = () => {
   const secondNumber = getRandomValue();
 
   const question = `${firstNumber} ${secondNumber}`;
-  const correctAnswer = getGcdOfTwoNumber(firstNumber, secondNumber);
+  const correctAnswer = getGcdOfTwoNumber(firstNumber, secondNumber).toString();
 
   return [question, correctAnswer];
 };

@@ -4,43 +4,36 @@ import getRandomValue from '../utils';
 const ruleGame = 'What number is missing in the progression?';
 
 const progressionLength = 9;
-const setProgression = () => {
+const genProgression = () => {
   const first = getRandomValue();
   const step = getRandomValue();
 
   const progression = [];
-  let n = 0;
-  while (n < progressionLength) {
+  for (let n = 0; n < progressionLength; n += 1) {
     progression[n] = first + n * step;
-    n += 1;
   }
+
   return progression;
 };
 
-
-const getRandomValueFromArray = (arr) => {
-  const firstIndex = 0;
-  const lastIndex = arr.length - 1;
-  const index = getRandomValue(firstIndex, lastIndex);
-
-  const randomElement = arr[index];
-  return randomElement;
-};
-
-const hideElement = (element, elements) => {
-  const array = elements;
-  const hiddenEl = elements.indexOf(element);
-  array[hiddenEl] = '..';
-  return array.join();
+const hideElement = (elements, element) => {
+  const list = elements;
+  const item = element;
+  list[item] = '..';
+  return list.join();
 };
 
 const getGameData = () => {
-  const progression = setProgression();
-  const hiddenRandomElement = getRandomValueFromArray(progression);
-  const progressionWithHiddenEl = hideElement(hiddenRandomElement, progression);
+  const progression = genProgression();
+  const firstIndex = 0;
+  const lastIndex = progression.length - 1;
+  const randomElementIndex = getRandomValue(firstIndex, lastIndex);
 
-  const question = `${progressionWithHiddenEl}`;
-  const correctAnswer = hiddenRandomElement;
+  const hiddenElement = progression[randomElementIndex];
+  const progressionWithHiddenEl = hideElement(progression, randomElementIndex);
+
+  const question = progressionWithHiddenEl;
+  const correctAnswer = hiddenElement.toString();
 
   return [question, correctAnswer];
 };
