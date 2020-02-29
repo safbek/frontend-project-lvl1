@@ -1,7 +1,7 @@
 import runGameEngine from '..';
 import getRandomValue from '../utils';
 
-const ruleGame = 'Find the greatest common divisor of given numbers.';
+const task = 'Find the greatest common divisor of given numbers.';
 
 const getGcdOfTwoNumber = (number1, number2) => {
   if (number2 === 0) {
@@ -20,4 +20,4 @@ const getGameData = () => {
   return [question, correctAnswer];
 };
 
-export default () => runGameEngine(ruleGame, getGameData);
+export default () => runGameEngine(task, getGameData);

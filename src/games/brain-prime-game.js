@@ -1,7 +1,7 @@
 import runGameEngine from '..';
 import getRandomValue from '../utils';
 
-const ruleGame = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const task = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const isPrime = (num) => {
   if (num < 2) {
@@ -19,9 +19,9 @@ const isPrime = (num) => {
 
 const getGameData = () => {
   const question = getRandomValue();
-  const correctAnswer = isPrime(question) ? 'yes' : 'no';
+  const correctAnswer = (isPrime(question) ? 'yes' : 'no').toString();
 
   return [question, correctAnswer];
 };
 
-export default () => runGameEngine(ruleGame, getGameData);
+export default () => runGameEngine(task, getGameData);

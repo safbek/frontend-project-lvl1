@@ -1,7 +1,7 @@
 import runGameEngine from '..';
 import getRandomValue from '../utils';
 
-const ruleGame = 'What is the result of the expression?';
+const task = 'What is the result of the expression?';
 
 const calculator = [{
   operator: '+',
@@ -18,8 +18,7 @@ const getGameData = () => {
   const firstIndex = 0;
   const lastIndex = calculator.length - 1;
   const index = getRandomValue(firstIndex, lastIndex);
-  const { operator } = calculator[index];
-  const { calculate } = calculator[index];
+  const { operator, calculate } = calculator[index];
 
   const firstValue = getRandomValue();
   const secondValue = getRandomValue();
@@ -30,4 +29,4 @@ const getGameData = () => {
   return [question, correctAnswer];
 };
 
-export default () => runGameEngine(ruleGame, getGameData);
+export default () => runGameEngine(task, getGameData);
