@@ -19,9 +19,9 @@ const isPrime = (num) => {
 
 const getGameData = () => {
   const question = getRandomValue();
-  const correctAnswer = (isPrime(question) ? 'yes' : 'no').toString();
+  const correctAnswer = isPrime(question) ? 'yes' : 'no';
 
-  return [question, correctAnswer];
+  return [question.toString(), correctAnswer];
 };
 
 export default () => runGameEngine(task, getGameData);

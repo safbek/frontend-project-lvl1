@@ -7,9 +7,9 @@ const task = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 const getGameData = () => {
   const question = getRandomValue();
-  const correctAnswer = (isEven(question) ? 'yes' : 'no').toString();
+  const correctAnswer = isEven(question) ? 'yes' : 'no';
 
-  return [question, correctAnswer];
+  return [question.toString(), correctAnswer];
 };
 
 export default () => runGameEngine(task, getGameData);

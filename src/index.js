@@ -13,8 +13,6 @@ const runGameEngine = (task, getGameData) => {
     const [question, correctAnswer] = dataFromGame;
 
     const userAnswer = readlineSync.question(`Question: ${question} `);
-    // const userAnswer = typeof correctAnswer === 'number' ? +answer : answer;
-
     if (userAnswer !== correctAnswer) {
       console.log(`Your answer: ${userAnswer}`);
       console.log(`'${userAnswer}'is wrong answer;(. Correct answer was '${correctAnswer}'.`);
